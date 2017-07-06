@@ -1,0 +1,17 @@
+- name: Add customer (BASE R13 models)
+  netconf_config:
+    host: "{{ inventory_hostname }}"
+    username: "{{ hostvars[inventory_hostname].ansible_user }}"
+    password: "{{ hostvars[inventory_hostname].ansible_ssh_pass }}"
+    datastore: running
+    xml: |
+        <config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+          <configure xmlns="urn:alcatel-lucent.com:sros:ns:yang:conf-r13">
+            <service>
+              <customer operation="merge">
+                <customer-id>10</customer-id>
+              </customer>
+            </service>
+          </configure>
+        </config>
+

@@ -1,0 +1,5 @@
+[vsim]
+172.22.113.210 ansible_user=netconf ansible_ssh_pass=netconf
+
+[server]
+127.0.0.1 ansible_user=timetra ansible_ssh_pass=timetra

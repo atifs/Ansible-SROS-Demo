@@ -1,0 +1,18 @@
+- name: Add customer (Nokia models) 
+  netconf_config:
+    host: "{{ inventory_hostname }}"
+    username: "{{ hostvars[inventory_hostname].ansible_user }}"
+    password: "{{ hostvars[inventory_hostname].ansible_ssh_pass }}"
+    datastore: candidate
+    hostkey_verify: false
+    xml: |
+        <config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+          <configure xmlns="urn:nokia.com:sros:ns:yang:sr:conf">
+            <service>
+              <customer operation="create">
+                <customer-id>10</customer-id>
+              </customer>
+            </service>
+          </configure>
+        </config>
+

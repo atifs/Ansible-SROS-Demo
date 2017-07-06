@@ -1,0 +1,8 @@
+- name: Create VPLS with vars (Nokia models) 
+  netconf_config:
+    host: "{{ inventory_hostname }}"
+    username: "{{ hostvars[inventory_hostname].ansible_user }}"
+    password: "{{ hostvars[inventory_hostname].ansible_ssh_pass }}"
+    datastore: candidate
+    src: create_vpls.j2
+

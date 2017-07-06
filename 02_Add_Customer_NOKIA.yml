@@ -1,0 +1,9 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: vsim
+  connection: local
+  gather_facts: False
+
+  roles:
+    - role: nctest02
+
